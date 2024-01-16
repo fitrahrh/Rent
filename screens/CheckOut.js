@@ -18,19 +18,19 @@ const CheckOut = () => {
         </Text>
         <Text
           style={[styles.alwisSuryatmajaJl, styles.bussinesDaysTypo]}
-        >{`Alwis suryatmaja
-Jl. Pasar Denpasar
-Denpasar
+        >{`Fitrah
+Jl. Ikan Mas No 13
+Pekanbaru
 Bali, 12345
 Indonesia
-+62822268446767`}</Text>
++6281261141754`}</Text>
         <Text style={[styles.bussinesDays, styles.bussinesDaysTypo]}>
           1 -2 Bussines days
         </Text>
         <View style={[styles.alamatChild, styles.alamatLayout]} />
         <View style={[styles.alamatItem, styles.alamatLayout]} />
         <View style={[styles.alamatInner, styles.alamatLayout]} />
-        <Pressable style={[styles.change, styles.changeLayout]}>
+        <Pressable style={[styles.change, styles.changeLayout]} onPress={() => navigation.navigate("HalamanAwal")}>
           <View style={[styles.changeChild, styles.changeLayout]} />
           <Text style={styles.change1}>Change</Text>
         </Pressable>
@@ -42,7 +42,7 @@ Indonesia
           source={require("../assets/panah-kiri2.png")}
         />
       </Pressable>
-      <Pressable style={[styles.proses, styles.prosesLayout1]}>
+      <Pressable style={[styles.proses, styles.prosesLayout1]} onPress={() => navigation.navigate("CheckOut2")}>
         <View style={[styles.prosesChild, styles.indicatorPosition]} />
         <Text style={[styles.proceedToPayment, styles.shippingAddressTypo]}>
           proceed to payment

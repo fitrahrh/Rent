@@ -2,8 +2,10 @@ import * as React from "react";
 import { Text, StyleSheet, Pressable, View } from "react-native";
 import { Image } from "expo-image";
 import { Color, FontSize, FontFamily, Border } from "../GlobalStyles";
+import { useNavigation } from "@react-navigation/native";
 
 const Pembayaran = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.pembayaran}>
       <Text style={styles.choosePayment}>Choose Payment</Text>
@@ -64,11 +66,13 @@ const Pembayaran = () => {
       <View style={[styles.barBawah, styles.barBawahLayout]}>
         <View style={[styles.indicator, styles.barBawahLayout]} />
       </View>
-      <Image
-        style={styles.panahKiriIcon}
-        contentFit="cover"
-        source={require("../assets/panah-kiri2.png")}
-      />
+      <Pressable onPress={() => navigation.goBack()}>
+        <Image
+          style={styles.panahKiriIcon}
+          contentFit="cover"
+          source={require("../assets/panah-kiri2.png")}
+        />
+      </Pressable>
     </View>
   );
 };

@@ -101,7 +101,7 @@ const DetailProduk = () => {
 - Nyaman dipakai....`}</Text>
       <Pressable
         style={[styles.rent1, styles.rentLayout]}
-        onPress={() => navigation.navigate("CheckOut")} // Ganti "Checkout" dengan nama stack/halaman Checkout.js
+        onPress={() => navigation.navigate("CheckOut1")} // Ganti "Checkout" dengan nama stack/halaman Checkout.js
       >
         <View style={[styles.rentChild, styles.rentLayout]} />
         <Text style={[styles.rentNow, styles.offTypo]}>Rent Now</Text>

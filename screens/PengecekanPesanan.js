@@ -2,8 +2,11 @@ import * as React from "react";
 import { Image } from "expo-image";
 import { StyleSheet, Text, View, Pressable } from "react-native";
 import { Color, FontFamily, FontSize, Border } from "../GlobalStyles";
+import { useNavigation } from "@react-navigation/native";
+
 
 const PengecekanPesanan = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.pengecekanPesanan}>
       <Image
@@ -35,10 +38,10 @@ const PengecekanPesanan = () => {
         <Text style={[styles.total, styles.totalTypo]}>Total</Text>
         <View style={styles.groupItem} />
       </View>
-      <Pressable
+      <Pressable onPress={() => navigation.navigate("HalamanAwal")}
         style={[styles.pengecekanPesananChild, styles.pengecekanLayout]}
       />
-      <Pressable
+      <Pressable onPress={() => navigation.navigate("Pembayaran")}
         style={[styles.pengecekanPesananItem, styles.pengecekanLayout]}
       />
       <Text style={[styles.pay, styles.payTypo]}>Pay</Text>
@@ -46,11 +49,13 @@ const PengecekanPesanan = () => {
       <View style={[styles.barBawah, styles.barBawahLayout]}>
         <View style={[styles.indicator, styles.barBawahLayout]} />
       </View>
-      <Image
-        style={styles.panahKiriIcon}
-        contentFit="cover"
-        source={require("../assets/panah-kiri2.png")}
-      />
+      <Pressable onPress={() => navigation.goBack()}>
+        <Image
+          style={styles.panahKiriIcon}
+          contentFit="cover"
+          source={require("../assets/panah-kiri2.png")}
+        />
+      </Pressable>
       <View style={styles.proses}>
         <Image
           style={[styles.phnumberCircleOneFillIcon, styles.phnumberIconLayout]}
@@ -267,7 +272,6 @@ const styles = StyleSheet.create({
     top: 471,
   },
   idr250000: {
-    textDecoration: "line-through",
     color: Color.colorRed_100,
     top: 471,
     left: 179,

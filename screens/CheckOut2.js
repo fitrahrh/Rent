@@ -3,8 +3,11 @@ import { Image } from "expo-image";
 import { StyleSheet, View, Text, Pressable } from "react-native";
 import { CheckBox } from "@ui-kitten/components";
 import { Color, FontSize, FontFamily, Border } from "../GlobalStyles";
+import { useNavigation } from "@react-navigation/native";
+
 
 const CheckOut2 = () => {
+  const navigation = useNavigation();
   const [carbonradioButtonchecked, setCarbonradioButtonchecked] =
     useState(false);
   const [carbonradioButton1checked, setCarbonradioButton1checked] =
@@ -75,12 +78,15 @@ const CheckOut2 = () => {
           Safe and fast
         </Text>
       </View>
-      <Image
-        style={styles.panahKiriIcon}
-        contentFit="cover"
-        source={require("../assets/panah-kiri1.png")}
-      />
-      <Pressable style={[styles.rectangleParent, styles.groupChildLayout]}>
+      <Pressable onPress={() => navigation.goBack()}>
+        <Image
+          style={styles.panahKiriIcon}
+          contentFit="cover"
+          source={require("../assets/panah-kiri2.png")}
+        />
+      </Pressable>
+      <Pressable style={[styles.rectangleParent, styles.groupChildLayout]}
+      onPress={() => navigation.navigate("PengecekanPesanan")}>
         <View style={[styles.groupChild, styles.indicatorPosition]} />
         <Text style={styles.next}>Next</Text>
       </Pressable>

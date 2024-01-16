@@ -155,7 +155,7 @@ const HalamanAwal = () => {
         <Text style={[styles.welcomeBack, styles.get40OffTypo]}>
           Welcome Back!
         </Text>
-        <Text style={styles.fajarSieNackhall}>Fajar Sie NackhaLL</Text>
+        <Text style={styles.fajarSieNackhall}>Fitrah</Text>
       </View>
       <Image
         style={[styles.notificationsIcon, styles.welcomeBackParentPosition]}

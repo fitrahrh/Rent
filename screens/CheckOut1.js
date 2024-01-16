@@ -2,8 +2,11 @@ import * as React from "react";
 import { Text, StyleSheet, View, TextInput, Pressable } from "react-native";
 import { Image } from "expo-image";
 import { Color, FontFamily, FontSize, Border } from "../GlobalStyles";
+import { useNavigation } from "@react-navigation/native";
+
 
 const CheckOut1 = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.checkOut}>
       <Text style={styles.enterTheDelivery}>Enter the delivery address</Text>
@@ -71,14 +74,17 @@ const CheckOut1 = () => {
       />
       <View style={[styles.checkOutChild1, styles.childBorder]} />
       <Text style={[styles.text, styles.saveTypo]}>+62</Text>
-      <Image
-        style={styles.panahKiriIcon}
-        contentFit="cover"
-        source={require("../assets/panah-kiri1.png")}
-      />
+      <Pressable onPress={() => navigation.goBack()}>
+        <Image
+          style={styles.panahKiriIcon}
+          contentFit="cover"
+          source={require("../assets/panah-kiri2.png")}
+        />
+      </Pressable>
       <Pressable style={[styles.rectangleParent, styles.rectangleLayout]}>
         <Pressable
           style={[styles.rectanglePressable, styles.indicatorPosition]}
+          onPress={() => navigation.navigate("CheckOut")}
         />
         <Text style={[styles.next, styles.saveTypo]}>Next</Text>
       </Pressable>
