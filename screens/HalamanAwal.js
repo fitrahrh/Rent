@@ -9,8 +9,18 @@ import {
 } from "react-native";
 import { Image } from "expo-image";
 import { FontSize, Color, FontFamily, Border, Padding } from "../GlobalStyles";
+import { useNavigation } from "@react-navigation/native"; // Import useNavigation hook
+
 
 const HalamanAwal = () => {
+
+  const navigation = useNavigation(); // Initialize navigation
+
+  const handleImagePress = () => {
+    // Navigate to DetailProduk screen when the image is pressed
+    navigation.navigate("DetailProduk");
+  };
+
   return (
     <View style={styles.halamanAwal}>
       <View style={styles.frameParent}>
@@ -132,11 +142,13 @@ const HalamanAwal = () => {
           source={require("../assets/supportheart1.png")}
         />
       </View>
-      <Image
-        style={styles.bajuHitamIcon}
-        contentFit="cover"
-        source={require("../assets/baju-hitam1.png")}
-      />
+      <Pressable style={styles.bajuHitamWrapper} onPress={handleImagePress}>
+        <Image
+          style={styles.bajuHitamIcon}
+          contentFit="cover"
+          source={require("../assets/baju-hitam1.png")}
+        />
+      </Pressable>
       <View
         style={[styles.welcomeBackParent, styles.welcomeBackParentPosition]}
       >

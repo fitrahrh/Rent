@@ -2,8 +2,11 @@ import * as React from "react";
 import { Text, StyleSheet, View, Pressable } from "react-native";
 import { Image } from "expo-image";
 import { FontFamily, FontSize, Color, Border } from "../GlobalStyles";
+import { useNavigation } from "@react-navigation/native";
+
 
 const CheckOut = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.checkOut}>
       <View style={styles.alamat}>
@@ -32,11 +35,13 @@ Indonesia
           <Text style={styles.change1}>Change</Text>
         </Pressable>
       </View>
-      <Image
-        style={styles.panahKiriIcon}
-        contentFit="cover"
-        source={require("../assets/panah-kiri2.png")}
-      />
+      <Pressable onPress={() => navigation.goBack()}>
+        <Image
+          style={styles.panahKiriIcon}
+          contentFit="cover"
+          source={require("../assets/panah-kiri2.png")}
+        />
+      </Pressable>
       <Pressable style={[styles.proses, styles.prosesLayout1]}>
         <View style={[styles.prosesChild, styles.indicatorPosition]} />
         <Text style={[styles.proceedToPayment, styles.shippingAddressTypo]}>

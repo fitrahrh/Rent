@@ -2,15 +2,20 @@ import * as React from "react";
 import { Pressable, StyleSheet, View, Text } from "react-native";
 import { Image } from "expo-image";
 import { Color, FontSize, FontFamily, Padding, Border } from "../GlobalStyles";
+import { useNavigation } from "@react-navigation/native";
+
 
 const DetailProduk = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.detailProduk}>
-      <Image
-        style={styles.panahKiriIcon}
-        contentFit="cover"
-        source={require("../assets/panah-kiri.png")}
-      />
+      <Pressable onPress={() => navigation.goBack()}>
+        <Image
+          style={styles.panahKiriIcon}
+          contentFit="cover"
+          source={require("../assets/panah-kiri.png")}
+        />
+      </Pressable>
       <Image
         style={[styles.bajuHitamIcon, styles.frame1Position]}
         contentFit="cover"
@@ -94,7 +99,10 @@ const DetailProduk = () => {
 - High Waist
 - Resetling di belakang
 - Nyaman dipakai....`}</Text>
-      <Pressable style={[styles.rent1, styles.rentLayout]}>
+      <Pressable
+        style={[styles.rent1, styles.rentLayout]}
+        onPress={() => navigation.navigate("CheckOut")} // Ganti "Checkout" dengan nama stack/halaman Checkout.js
+      >
         <View style={[styles.rentChild, styles.rentLayout]} />
         <Text style={[styles.rentNow, styles.offTypo]}>Rent Now</Text>
       </Pressable>
